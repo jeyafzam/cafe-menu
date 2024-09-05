@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <title>Cafe-Menu</title>
+    <link rel="stylesheet" href="./style/main.css" />
+  </head>
+  <body>
+    <div class="container"></div>
+    <script>
+      const menu = [
+        {
+          id: 1,
+          title: "buttermilk pancakes",
+          category: "breakfast",
+          price: 15.99,
+          img: "./images/item-1.jpeg",
+        },
+        {
+          id: 2,
+          title: "diner double",
+          category: "lunch",
+          price: 13.99,
+          img: "./images/item-2.jpeg",
+        },
+        {
+          id: 3,
+          title: "country delight",
+          category: "breakfast",
+          price: 20.99,
+          img: "./images/item-3.webp",
+        },
+        {
+          id: 4,
+          title: "egg attack",
+          category: "lunch",
+          price: 15.99,
+          img: "./images/item-2.jpeg",
+        },
+        {
+          id: 5,
+          title: "bacon overflow",
+          category: "breakfast",
+          price: 8.99,
+          img: "./images/item-7.jpeg",
+        },
+        {
+          id: 6,
+          title: "american classic",
+          category: "lunch",
+          price: 12.99,
+          img: "./images/item-6.jpeg",
+        },
+        {
+          id: 7,
+          title: "steak",
+          category: "dinner",
+          price: 36.99,
+          img: "./images/item-7.webp",
+        },
+        {
+          id: 8,
+          title: "Oreo Dream",
+          category: "shakes",
+          price: 18.99,
+          img: "./images/item-8.jpeg",
+        },
+        {
+          id: 9,
+          title: "Oreo Dream",
+          category: "shakes",
+          price: 18.99,
+          img: "./images/item-9.jpeg",
+        },
+        {
+          id: 10,
+          title: "Oreo Dream",
+          category: "shakes",
+          price: 18.99,
+          img: "./images/item-10.jpeg",
+        },
+      ];
+      let headerEl = document.createElement("DIV");
+      headerEl.classList.add("header");
+      let titleEl = document.createElement("H1");
+      titleEl.classList.add("title");
+      titleEl.textContent = "our menu";
+      let underLine = document.createElement("DIV");
+      underLine.classList.add("underline");
+      let container = document.querySelector(".container");
+      headerEl.appendChild(titleEl);
+      headerEl.appendChild(underLine);
+      container.appendChild(headerEl);
+      let btnContainer = document.createElement("DIV");
+      btnContainer.classList.add("btn-container");
+      let btn1 = document.createElement("BUTTON");
+      btn1.classList.add("btn-filter");
+      btn1.textContent = "all";
+      btnContainer.appendChild(btn1);
+      let btn2 = document.createElement("BUTTON");
+      btn2.classList.add("btn-filter");
+      btn2.textContent = "breakfast";
+      btnContainer.appendChild(btn2);
+      let btn3 = document.createElement("BUTTON");
+      btn3.classList.add("btn-filter");
+      btn3.textContent = "lunch";
+      btnContainer.appendChild(btn3);
+      let btn4 = document.createElement("BUTTON");
+      btn4.classList.add("btn-filter");
+      btn4.textContent = "Shakes";
+      btnContainer.appendChild(btn4);
+      container.appendChild(btnContainer);
+      let btn5 = document.createElement("BUTTON");
+      btn5.classList.add("btn-filter");
+      btn5.textContent = "Dinner";
+      btnContainer.appendChild(btn5);
+      container.appendChild(btnContainer);
+      let itemsContainer=document.createElement("DIV");
+      itemsContainer.classList.add("items-container");
+      
+      container.appendChild(itemsContainer);
+    </script>
+  </body>
+</html>
