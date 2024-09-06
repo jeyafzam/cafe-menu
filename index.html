@@ -13,6 +13,8 @@
           category: "breakfast",
           price: 15.99,
           img: "./images/item-1.jpeg",
+          description:
+            "Fluffy and tender buttermilk pancakes served with a generous pat of butter and syrup of your choice.",
         },
         {
           id: 2,
@@ -20,27 +22,35 @@
           category: "lunch",
           price: 13.99,
           img: "./images/item-2.jpeg",
+          description:
+            "Burger Deluxe: A classic American burger topped with all the essentials, including lettuce, tomato, pickles, onions, melted cheddar cheese, and special sauce. Served on a toasted bun and a side of fries",
         },
         {
           id: 3,
           title: "country delight",
           category: "breakfast",
           price: 20.99,
-          img: "./images/item-3.webp",
+          img: "./images/item-3.jpeg",
+          description:
+            "A hearty and wholesome meal, inspired by the flavors of the countryside. Made with a combination of fresh ingredients, this dish features savory meats, crisp vegetables, and fluffy potatoes, all cooked to perfection.",
         },
         {
           id: 4,
           title: "egg attack",
           category: "lunch",
           price: 15.99,
-          img: "./images/item-2.jpeg",
+          img: "./images/item-4.jpeg",
+          description:
+            "A classic American burger topped with a sunny-side up egg, adding a touch of richness and flavor to the traditional dish. Served on a toasted bun with lettuce, tomato, pickles, onions, melted cheddar cheese, and special sauce.",
         },
         {
           id: 5,
           title: "bacon overflow",
           category: "breakfast",
           price: 8.99,
-          img: "./images/item-7.jpeg",
+          img: "./images/item-5.jpeg",
+          description:
+            "dish that combines savory bacon with fluffy eggs and crispy potatoes. Made with a generous serving of crispy bacon, fluffy scrambled eggs, and crispy hash browns, this dish is filling, flavorful, and packed with protein.",
         },
         {
           id: 6,
@@ -48,34 +58,44 @@
           category: "lunch",
           price: 12.99,
           img: "./images/item-6.jpeg",
+          description:
+            "A traditional American meal, featuring classic flavors and ingredients. Made with juicy burgers, crispy fries, and a cold drink, this meal is both satisfying and nostalgic.",
         },
         {
           id: 7,
           title: "steak",
           category: "dinner",
           price: 36.99,
-          img: "./images/item-7.webp",
+          img: "./images/item-7.jpeg",
+          description:
+            "A juicy and flavorful cut of beef, cooked to perfection and served with a side of your choice. Made with high-quality, tender cuts of beef, this steak is grilled to perfection and topped with a pat of butter for added richness.",
         },
         {
           id: 8,
-          title: "Oreo Dream",
+          title: "Mango-Shake",
           category: "shakes",
           price: 18.99,
-          img: "./images/item-8.jpeg",
+          img: "./images/item-8.jpg",
+          description:
+            "A Mango-Shake is a sweet beverage made by blending milk, ice cream, and Mango or sweeteners such as butterscotch, caramel sauce, chocolate syrup, or fruit syrup into a thick, sweet, cold mixture.",
         },
         {
           id: 9,
-          title: "Oreo Dream",
+          title: "Keto-Chocolate-Milkshake",
           category: "shakes",
           price: 18.99,
-          img: "./images/item-9.jpeg",
+          img: "./images//item-9.webp",
+          description:
+            "A Keto-Chocolate-Milkshake is a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, or fruit syrup into a thick, sweet, cold mixture",
         },
         {
           id: 10,
-          title: "Oreo Dream",
+          title: "Strawberry Milkshake",
           category: "shakes",
           price: 18.99,
-          img: "./images/item-10.jpeg",
+          img: "./images/item-10.jpg",
+          description:
+            "This strawberry milkshake is thick, creamy, and everything that you would hope a milkshake would be! Made with delicious strawberries, this classic dessert is sure to be loved by all!",
         },
       ];
       let headerEl = document.createElement("DIV");
@@ -113,10 +133,21 @@
       btn5.textContent = "Dinner";
       btnContainer.appendChild(btn5);
       container.appendChild(btnContainer);
-      let itemsContainer=document.createElement("DIV");
+      let itemsContainer = document.createElement("DIV");
       itemsContainer.classList.add("items-container");
-      
       container.appendChild(itemsContainer);
+      let ulEl = document.createElement("UL");
+      ulEl.classList.add("itemul");
+      itemsContainer.appendChild(ulEl);
+
+      const menuList = () => {
+        let items = "";
+        menu.forEach(({ img, title, price, description }, index) => {
+          items += `<li class="item-menu"><div class=bgimage><img src="${img}"></div><div class="item-info"><div class="item-info-header"><h4>${title}</h4><h4 class="price">$${price}</h4></div><p class="item-text">${description}</p></div></li> `;
+        });
+        document.querySelector(".itemul").innerHTML = items;
+      };
+      menuList();
     </script>
   </body>
 </html>
