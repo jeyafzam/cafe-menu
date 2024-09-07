@@ -20,17 +20,17 @@ a {
   margin: 0 auto;
   height: 100vh;
 }
-.header {
-  padding-top: 70px;
+.title{
   margin-bottom: 37px;
 }
-.header .title {
+ .title h2{
   font-size: 40px;
   text-transform: capitalize;
   text-align: center;
-  margin-bottom: 5px;
+  padding-top: 70px;
+  margin-bottom:5px;
 }
-.header .underline {
+.title  .underline {
   width: 85px;
   height: 4px;
   background-color: #c59d5f;
@@ -41,7 +41,7 @@ a {
   justify-content: center;
   margin-bottom: 65px;
 }
-.btn-filter {
+.btn {
   text-transform: capitalize;
   letter-spacing: 1px;
   font-size: 17px;
@@ -56,45 +56,49 @@ a {
   border-radius: 8px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
-.btn-filter:hover {
+.btn:hover {
   background-color: #c59d5f;
   color: #fff;
   border-radius: 8px;
 }
-.items-container .itemul {
+.center-section{
+  padding-bottom: 50px;
+}
+.center-section .ulitem {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 40px;
 }
-.items-container .itemul .item-menu {
+.center-section .ulitem .item-menu {
   width: 48%;
   display: flex;
 }
-.items-container .item-menu img {
+.center-section .ulitem .item-menu img {
   width: 225px;
   height: 145px;
   display: block;
   border: 4px solid #c59d5f;
   border-radius: 5px;
+  object-fit: cover;
 }
-.items-container .itemul .item-menu .item-info {
+.center-section .ulitem .item-menu .item-info {
   padding-left: 20px;
   line-height: 22px;
 }
-.items-container .itemul .item-menu .item-info .item-info-header {
+.center-section .ulitem .item-menu .item-info .item-info-header {
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px dotted #617d98;
   text-transform: capitalize;
   margin-bottom: 18px;
 }
-.items-container .itemul .item-menu .item-info .item-info-header h4 {
+.center-section .ulitem .item-menu .item-info .item-info-header h4 {
   margin-bottom: 5px;
 }
-.items-container .itemul .item-menu .item-info .item-info-header .price {
+.center-section .ulitem .item-menu .item-info .item-info-header .price {
   color: #c59d5f;
 }
-.items-container .itemul .item-menu .item-info .item-text {
+.center-section .ulitem .item-menu .item-info .item-text {
   color: #617d98;
 }

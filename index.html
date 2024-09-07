@@ -4,7 +4,22 @@
     <link rel="stylesheet" href="./style/main.css" />
   </head>
   <body>
-    <div class="container"></div>
+    <main class="container">
+      <div class="title">
+        <h2>our menu</h2>
+        <div class="underline"></div>
+      </div>
+      <div class="btn-container">
+        <button class="btn" data-category="all">all</button>
+        <button class="btn" data-category="breakfast">breakfast</button>
+        <button class="btn" data-category="lunch">lunch</button>
+        <button class="btn" data-category="shakes">shakes</button>
+        <button class="btn" data-category="dinner">dinner</button>
+      </div>
+      <section class="center-section">
+        <ul class="ulitem"></ul>
+      </section>
+    </main>
     <script>
       const menu = [
         {
@@ -83,7 +98,7 @@
           id: 9,
           title: "Keto-Chocolate-Milkshake",
           category: "shakes",
-          price: 18.99,
+          price: 20.99,
           img: "./images//item-9.webp",
           description:
             "A Keto-Chocolate-Milkshake is a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, or fruit syrup into a thick, sweet, cold mixture",
@@ -92,62 +107,48 @@
           id: 10,
           title: "Strawberry Milkshake",
           category: "shakes",
-          price: 18.99,
+          price: 19.99,
           img: "./images/item-10.jpg",
           description:
             "This strawberry milkshake is thick, creamy, and everything that you would hope a milkshake would be! Made with delicious strawberries, this classic dessert is sure to be loved by all!",
         },
       ];
-      let headerEl = document.createElement("DIV");
-      headerEl.classList.add("header");
-      let titleEl = document.createElement("H1");
-      titleEl.classList.add("title");
-      titleEl.textContent = "our menu";
-      let underLine = document.createElement("DIV");
-      underLine.classList.add("underline");
-      let container = document.querySelector(".container");
-      headerEl.appendChild(titleEl);
-      headerEl.appendChild(underLine);
-      container.appendChild(headerEl);
-      let btnContainer = document.createElement("DIV");
-      btnContainer.classList.add("btn-container");
-      let btn1 = document.createElement("BUTTON");
-      btn1.classList.add("btn-filter");
-      btn1.textContent = "all";
-      btnContainer.appendChild(btn1);
-      let btn2 = document.createElement("BUTTON");
-      btn2.classList.add("btn-filter");
-      btn2.textContent = "breakfast";
-      btnContainer.appendChild(btn2);
-      let btn3 = document.createElement("BUTTON");
-      btn3.classList.add("btn-filter");
-      btn3.textContent = "lunch";
-      btnContainer.appendChild(btn3);
-      let btn4 = document.createElement("BUTTON");
-      btn4.classList.add("btn-filter");
-      btn4.textContent = "Shakes";
-      btnContainer.appendChild(btn4);
-      container.appendChild(btnContainer);
-      let btn5 = document.createElement("BUTTON");
-      btn5.classList.add("btn-filter");
-      btn5.textContent = "Dinner";
-      btnContainer.appendChild(btn5);
-      container.appendChild(btnContainer);
-      let itemsContainer = document.createElement("DIV");
-      itemsContainer.classList.add("items-container");
-      container.appendChild(itemsContainer);
-      let ulEl = document.createElement("UL");
-      ulEl.classList.add("itemul");
-      itemsContainer.appendChild(ulEl);
+      const centerSection = document.querySelector(".center-section");
+      const ulItem = document.querySelector(".ulitem");
+      const btns = document.querySelectorAll(".btn");
+      window.addEventListener("DOMContentLoaded", function () {
+        displayMenuItems(menu);
+      });
 
-      const menuList = () => {
-        let items = "";
-        menu.forEach(({ img, title, price, description }, index) => {
-          items += `<li class="item-menu"><div class=bgimage><img src="${img}"></div><div class="item-info"><div class="item-info-header"><h4>${title}</h4><h4 class="price">$${price}</h4></div><p class="item-text">${description}</p></div></li> `;
+      btns.forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+          const category = e.currentTarget.dataset.category;
+          const categoryMenu = menu.filter(function (item) {
+            if (item.category === category) {
+              return item;
+            }
+          });
+          if (category === "all") {
+            displayMenuItems(menu);
+          } else {
+            displayMenuItems(categoryMenu);
+          }
         });
-        document.querySelector(".itemul").innerHTML = items;
-      };
-      menuList();
+      });
+
+      function displayMenuItems(menuItems) {
+        let displayItem = menuItems.map(function (item) {
+          return `<li class="item-menu">
+<div class=bgimage><img src="${item.img}"></div>
+<div class="item-info"><div class="item-info-header"><h4>${item.title}</h4>
+<h4 class="price">$${item.price}</h4></div>
+<p class="item-text">${item.description}</p></div></li>
+`;
+        });
+        displayItem = displayItem.join("");
+        ulItem.innerHTML = displayItem;
+        centerSection.appendChild(ulItem);
+      }
     </script>
   </body>
 </html>
